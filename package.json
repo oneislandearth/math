@@ -1,0 +1,36 @@
+{
+  "name": "@oneisland/math",
+  "private": false,
+  "version": "0.0.1",
+  "description": "A simple library which extends mathjs for doing math in JavaScript",
+  "keywords": [
+    "math",
+    "mathjs",
+    "oneisland"
+  ],
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "oneisland-babler lib",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "mathjs": "^6.2.2"
+  },
+  "devDependencies": {
+    "@oneisland/babler": "0.0.6",
+    "@oneisland/linter": "0.0.8"
+  },
+  "homepage": "https://github.com/oneislandearth/math#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oneislandearth/math.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oneislandearth/math/issues"
+  },
+  "contributors": [
+    "Daniel Larkin <daniel@oneisland.io>",
+    "Alex Ryde <alex@oneisland.io>"
+  ],
+  "license": "MIT"
+}
