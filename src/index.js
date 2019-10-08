@@ -34,6 +34,26 @@ math.radians = (n) => math.multiply(n, math.radian);
 // Calculate the unit vector of a vector
 math.unit = (n) => math.divide(n, math.norm(n));
 
+// Calculate the sum of a set of values
+math.isZeroes = (n) => {
+
+  // Cast the value to an array if it isn't one
+  n = (Array.isArray(n)) ? n: [n];
+
+  // Store the count of zeroes
+  let zeroes = 0;
+
+  // Check each of the values is less than the epsilon
+  for (const v of n) {
+
+    // Return false if the number is greater than the epsilon
+    if (math.abs(v) <= math.epsilon) zeroes += 1;
+  }
+
+  // Return true as all numbers are less than the epsilon
+  return (zeroes == n.length);
+}
+
 // Check that a value a kind of number
 math.isNumber = (n) => (n !== null && (typeof (n) == 'number' || typeof (n) == 'bigint' || n instanceof math.BigNumber));
 
