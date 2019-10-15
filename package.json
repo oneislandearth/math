@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@oneisland/babler": "0.0.7",
-    "@oneisland/linter": "0.0.8"
+    "@oneisland/linter": "0.0.9"
   },
   "homepage": "https://github.com/oneislandearth/math#readme",
   "repository": {
