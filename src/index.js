@@ -65,14 +65,14 @@ math.angleBetween = (...vectors) => {
   if (vectors.length == 3) {
 
     // Calculate vector a
-    a = subtract(vector[0], vector[1]);
+    a = math.subtract(vectors[0], vectors[1]);
 
     // Calculate vector b
-    b = subtract(vector[2], vector[1]);
+    b = math.subtract(vectors[2], vectors[1]);
   }
   
   // Calculate and return the angle
-  return acos(divide(dot(a, b), multiply(norm(a), norm(b))));
+  return math.acos(math.divide(math.dot(a, b), math.multiply(math.norm(a), math.norm(b))));
 }
 
 // Check that a value a kind of number
