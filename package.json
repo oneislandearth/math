@@ -1,7 +1,7 @@
 {
   "name": "@oneisland/math",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "A simple library which extends mathjs for doing math in JavaScript",
   "keywords": [
     "math",
@@ -17,8 +17,8 @@
     "mathjs": "^6.2.2"
   },
   "devDependencies": {
-    "@oneisland/babler": "0.0.6",
-    "@oneisland/linter": "0.0.8"
+    "@oneisland/babler": "0.0.7",
+    "@oneisland/linter": "0.0.10"
   },
   "homepage": "https://github.com/oneislandearth/math#readme",
   "repository": {

@@ -54,6 +54,27 @@ math.isZeroes = (n) => {
   return (zeroes == n.length);
 }
 
+// Calculate the angle between two or three vectors
+math.angleBetween = (...vectors) => {
+
+  // Define the two vectors
+  let a = vectors[0];
+  let b = vectors[1];
+
+  // Check if there are three vectors (find angle located at b)
+  if (vectors.length == 3) {
+
+    // Calculate vector a
+    a = math.subtract(vectors[0], vectors[1]);
+
+    // Calculate vector b
+    b = math.subtract(vectors[2], vectors[1]);
+  }
+  
+  // Calculate and return the angle
+  return math.acos(math.divide(math.dot(a, b), math.multiply(math.norm(a), math.norm(b))));
+}
+
 // Check that a value a kind of number
 math.isNumber = (n) => (n !== null && (typeof (n) == 'number' || typeof (n) == 'bigint' || n instanceof math.BigNumber));
 
