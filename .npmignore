@@ -1,4 +1,4 @@
-# Ignore the development files when on NPM
+# Ignore the development files
 src
 tests
 .babelrc.js
