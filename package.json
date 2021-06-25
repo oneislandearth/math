@@ -14,7 +14,7 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "@oneisland/module-packer": "../../module-packer",
+    "@oneisland/module-packer": "^0.0.10",
     "mathjs": "^6.2.2"
   },
   "homepage": "https://github.com/oneislandearth/math#readme",

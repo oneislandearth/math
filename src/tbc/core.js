@@ -1,14 +1,9 @@
 // Import the required constants
-import { epsilon, degree, radian } from './constants';
+import { epsilon, degree, radian } from '../constants';
 
 // Import the required utilities
 import { vectorize, complexOperation } from './utils';
 
-// Describe the absolute function
-export const abs = (value) => round(Math.abs(value));
-
-// Describe a function to round the a number (6dp default)
-export const round = (number, decimals = 6) => Number(parseFloat(number).toFixed(decimals));
 
 // Describe the add function
 export const add = (...values) => complexOperation(values, (a, b) => round(a + b));
