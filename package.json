@@ -1,8 +1,9 @@
 {
   "name": "@oneisland/math",
   "private": false,
+  "type": "module",
   "version": "0.0.5",
-  "description": "Math without floating point rounding errors",
+  "description": "OneIsland Core Math Library",
   "keywords": [
     "math",
     "mathjs",
@@ -10,11 +11,15 @@
   ],
   "main": "lib/index.js",
   "scripts": {
+    "test": "module-packer test",
     "build": "module-packer build",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "prepublish": "npm run build",
+    "serve": "module-packer serve",
+    "watch": "module-packer watch"
   },
   "devDependencies": {
-    "@oneisland/module-packer": "^0.0.10",
+    "@oneisland/module-packer": "^0.0.11",
     "mathjs": "^6.2.2"
   },
   "homepage": "https://github.com/oneislandearth/math#readme",
@@ -29,5 +34,8 @@
     "Daniel Larkin <daniel@oneisland.io>",
     "Alex Ryde <alex@oneisland.io>"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "ava": "^4.0.0-alpha.2"
+  }
 }

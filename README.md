@@ -1,6 +1,6 @@
 ## @oneisland/math
 
-Math without floating point rounding errors
+OneIsland Core Math Library
 
 ## Documentation
 
