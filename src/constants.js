@@ -1,3 +1,6 @@
+// Import the round function
+import { round } from './round';
+
 // Define the epislon / tolerance
 export const epsilon = 1e-4;
 
@@ -8,7 +11,7 @@ export const pi = Math.PI;
 export const phi = Number((1 + Math.sqrt(5)) / 2);
 
 // Define the number of degrees in one radian
-export const degree = Number(180 / pi);
+// export const degree = Number(180 / pi);
 
-// Define the number of radians in one degree
-export const radian = Number(pi / 180);
+// Define the size of a radian in degrees
+// export const radian = Number(pi / 6);

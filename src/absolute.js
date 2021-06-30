@@ -1,5 +1,5 @@
 // Import the round function
-import { round } from 'round';
+import { round } from './round';
 
 // Describe the absolute function
 export const absolute = (value) => round(Math.abs(value));

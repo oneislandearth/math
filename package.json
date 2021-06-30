@@ -1,7 +1,6 @@
 {
   "name": "@oneisland/math",
   "private": false,
-  "type": "module",
   "version": "0.0.5",
   "description": "OneIsland Core Math Library",
   "keywords": [
@@ -19,7 +18,7 @@
     "watch": "module-packer watch"
   },
   "devDependencies": {
-    "@oneisland/module-packer": "^0.0.11",
+    "@oneisland/module-packer": "^0.0.14",
     "mathjs": "^6.2.2"
   },
   "homepage": "https://github.com/oneislandearth/math#readme",
@@ -34,8 +33,5 @@
     "Daniel Larkin <daniel@oneisland.io>",
     "Alex Ryde <alex@oneisland.io>"
   ],
-  "license": "MIT",
-  "dependencies": {
-    "ava": "^4.0.0-alpha.2"
-  }
+  "license": "MIT"
 }
