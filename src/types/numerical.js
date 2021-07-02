@@ -35,7 +35,7 @@ export class Numerical extends Array {
 
   // Define the matrix rows
   get rows() {
-    return this.dimension.rows;
+    return this.dimensions.rows;
   }
 
   // Define the dimensions

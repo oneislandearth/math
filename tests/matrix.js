@@ -38,14 +38,14 @@ test('transpose', t => {
 	const transposed = matrix.transpose();
 
 	// Define the expected matrix
-
-	// Define a vector
-	const v = new Vector([10, 20, 30, 1]);
-
-	console.log(v.transform(mt))
+	const expected = new Matrix([
+		[1, 4],
+		[2, 5],
+		[3, 6]
+	]);
 
 	// Check the matrix has transposed
-	if (matrix.equals()) t.pass();
+	if (transposed.equals(expected)) t.pass();
 });
 
 // Check if a matrix product is correct

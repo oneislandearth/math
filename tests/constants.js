@@ -5,7 +5,7 @@ import test from 'ava';
 import { round } from '../src/round';
 
 // Import the constants
-import { epsilon, pi, phi } from '../src/constants';
+import { epsilon, pi, phi, degree, radian } from '../src/constants';
 
 // Check if the epsilon value is correct
 test('epsilon', t => {
@@ -28,10 +28,17 @@ test('phi', t => {
 	if (round(phi) == 1.618034) t.pass();
 });
 
-// // Check if the radian value is correct
-// test('radian', t => {
+// Check if the radian value is correct
+test('radian', t => {
 
-// 	// Check the value is correct
-// 	if (round(radian * 6) == round(pi)) t.pass();
-// });
+	// Check the value is correct
+	if (round(radian) == 57.295780) t.pass();
+});
+
+// Check if the degree value is correct
+test('degree', t => {
+
+	// Check the value is correct
+	if (degree == (pi / 180)) t.pass();
+});
 
