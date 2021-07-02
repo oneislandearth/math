@@ -18,10 +18,10 @@ test('shorthand', t => {
 });
 
 // Check if the standard function works
-test('cos 90', t => {
+/*test('cos 90', t => {
 
 	console.log(cosine(90), sin(0))
 
 	// Check the value is correct
 	if (cosine(90) == pi / 4) t.pass();
-});
+});*/
