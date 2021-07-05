@@ -13,7 +13,7 @@ export class Numerical extends Array {
     // Set the species
     Reflect.defineProperty(this, 'species', {
       get() {
-        return species;
+        return species ? species : 'Numerical';
       }
     });
   }
@@ -42,4 +42,14 @@ export class Numerical extends Array {
   get dimensions() {
     return new Dimensions(this);
   }
+
+  // // Cast the number to a vector
+  // toVector(size) {
+
+  //   // Return the current value if already a vector
+  //   if (this.species == 'Vector') return this;
+
+  //   // Otherwise map the value to a vector
+  //   return new Vector(Array.length(size).fill(this[0]));
+  // }
 }

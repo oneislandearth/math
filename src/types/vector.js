@@ -40,6 +40,13 @@ export class Vector extends Numerical {
     throw new Error('vector.transform: rows and columns do not match');
   }
 
+  // Extend the length of a vector by n values and fill
+  extend(length, fill) {
+
+    // Return the new vector
+    return new Vector([...this, ...Array(length).fill(fill)]);
+  }
+
   // Check if the values are equal
   equals(vector) {
 
