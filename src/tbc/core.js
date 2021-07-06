@@ -53,11 +53,5 @@ export const asin = (value) => round(Math.asin(value));
 // Describe the sine function
 export const sin = (value) => round(Math.sin(value));
 
-// Describe a function to convert radians into degrees
-export const degrees = (radians) => multiply(radians, degree);
-
-// Describe a function to convert degrees into radians
-export const radians = (degrees) => multiply(degrees, radian);
-
 // Describe a function to check all values are zero
 export const zero = (value) => vectorize(value).every(value => abs(value) <= epsilon);
