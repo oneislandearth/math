@@ -1,15 +1,12 @@
 //
 import { sum } from '../sum';
 
-// Import the numerical type
-import { Numerical } from './numerical';
-
 // Import the matrix type
 import { Matrix } from './matrix';
 import { truthy } from '../utils';
 
 // Define the vector type
-export class Vector extends Numerical {
+export class Vector {
 
   // Define the vector
   constructor(data) {
