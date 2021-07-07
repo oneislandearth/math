@@ -40,6 +40,31 @@ test('transpose', t => {
   if (transposed.equals(expected)) t.pass();
 });
 
+// Check if a matrix determinant is correct
+test('determinant', t => {
+
+  // Create a matrix
+  const matrix = new Matrix([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+  ]);
+
+  // Transpose the matrix
+  const determiant = matrix.determiant();
+
+  // Define the expected matrix
+  // const expected = new Matrix([
+  //   [1, 4],
+  //   [2, 5],
+  //   [3, 6]
+  // ]);
+
+  // Check the matrix has transposed
+  // if (transposed.equals(expected)) t.pass();
+  t.pass();
+});
+
 // // Check if a matrix product is correct
 // test('product', t => {
 
