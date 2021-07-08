@@ -77,6 +77,23 @@ export const defineAspects = (type, { dimensions, species }) => {
     }
   });
 
+  // Define the value types from a to z
+  for (let i = 0; i < type.length; i++) {
+
+    // Define the key value
+    const key = String.fromCharCode(97 + i);
+
+    // Define the getter and setter
+    Reflect.defineProperty(type, key, {
+      get() {
+        return this[i];
+      },
+      set(v) {
+        this[i] = v;
+      }
+    });
+  }
+
   // Define the toString function
   Reflect.defineProperty(type, 'toString', {
     value() {

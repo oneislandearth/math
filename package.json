@@ -18,8 +18,7 @@
     "watch": "module-packer watch"
   },
   "devDependencies": {
-    "@oneisland/module-packer": "^0.0.14",
-    "mathjs": "^6.2.2"
+    "@oneisland/module-packer": "^0.0.16"
   },
   "homepage": "https://github.com/oneislandearth/math#readme",
   "repository": {

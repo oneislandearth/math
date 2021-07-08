@@ -4,17 +4,17 @@ import test from 'ava';
 // Import the types class
 import { Matrix } from '../src/types/matrix';
 
-// Create a matrix
-const matrix = new Matrix([
-  [10, 20, 30], 
-  [40, 50, 60]
-]);
-
 // Check if a matrix species is correct
-test('correct species', t => {
+test('type', t => {
 
-  // Check the matrix species is valid
-  if (matrix.species == 'Matrix') t.pass();
+  // Create a matrix
+  const matrix = new Matrix([
+    [10, 20, 30], 
+    [40, 50, 60]
+  ]);
+
+  // Check the matrix type is correct
+  if (matrix.type == 'Matrix(2x3)') t.pass();
 });
 
 // Check if a matrix size is correct
@@ -41,7 +41,7 @@ test('transpose', t => {
 });
 
 // Check if a matrix determinant is correct
-test('determinant', t => {
+test('determinant (3x3)', t => {
 
   // Create a matrix
   const matrix = new Matrix([
@@ -50,19 +50,29 @@ test('determinant', t => {
     [7, 8, 9]
   ]);
 
-  // Transpose the matrix
-  const determiant = matrix.determiant();
+  // Compute the determinant
+  const determinant = matrix.determinant();
 
-  // Define the expected matrix
-  // const expected = new Matrix([
-  //   [1, 4],
-  //   [2, 5],
-  //   [3, 6]
-  // ]);
+  // Check the matrix has computed the determinant correctly
+  if (determinant == 0) t.pass();
+});
 
-  // Check the matrix has transposed
-  // if (transposed.equals(expected)) t.pass();
-  t.pass();
+// Check if a matrix determinant is correct
+test('determinant (4x4)', t => {
+
+  // Create a matrix
+  const matrix = new Matrix([
+    [1, 2, 3, 4],
+    [5, 0, 1, 6],
+    [6, 10, 1, 7],
+    [7, 14, 15, 8]
+  ]);
+
+  // Compute the determinant
+  const determinant = matrix.determinant();
+
+  // Check the matrix has computed the determinant correctly
+  if (determinant == -1988) t.pass();
 });
 
 // // Check if a matrix product is correct
