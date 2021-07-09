@@ -1,8 +1,5 @@
-// Import the required utilities
-import { truthy } from '../utils';
-
 // Import the required operation functions
-import { add, subtract, multiply, divide, sum } from '../operations';
+import { add, subtract, multiply, divide, sum, negate } from '../operations';
 
 // Import the aspects utilities
 import { defineAspects } from './types';
@@ -172,7 +169,7 @@ export class Matrix extends Array {
   negative() {
 
     // Determine the negative values
-    const negative = this.rows.map(row => row.map(v => v * -1));
+    const negative = this.rows.map(row => row.map(v => negate(v)));
 
     // Return the new matrix
     return new Matrix(negative);
