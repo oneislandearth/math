@@ -28,6 +28,18 @@ export const min = (a, b) => round(Math.min(a, b));
 // Describe the max function
 export const max = (a, b) => round(Math.max(a, b));
 
+// Describe the square root function
+export const sqrt = (value) => round(Math.sqrt(value));
+
+// Describe the power function
+export const pow = (value, exponent) => round(Math.pow(value, exponent));
+
+// Describe the square function
+export const square = (value) => pow(value, 2);
+
+// Define the cube function
+export const cube = (value) => pow(value, 3);
+
 // Describe the equal function
 export const equal = (a, b) => abs(a - b) <= (max(abs(a), abs(b)) * epsilon);
 

@@ -1,5 +1,8 @@
 // Import the required operation functions
-import { add, subtract, multiply, divide, sum, negate } from '../operations';
+import { add, subtract, multiply, divide, sum, negate, square } from '../operations';
+
+// Import the require trigonometric functions
+import { cos, sin } from '../trigonometry';
 
 // Import the aspects utilities
 import { defineAspects } from './types';
@@ -50,21 +53,33 @@ export class Matrix extends Array {
     ]);
   }
 
-  // Transpose the matrix
-  transpose() {
+  // Create a translation matrix in 3D space
+  static Rotation(angle, axis) {
 
-    // Return the transposed matrix
-    return new Matrix(this.columns);
-  }
+    // Extract the x,y,z from the axis
+    const [x, y, z] = axis;
 
-  // Calculate the product
-  product(vector) {
+    // Define 
+    const a = add(cos(angle), multiply(square(x), subtract(1, cos(angle))));
+    const e = add(cos(angle), multiply(square(y), subtract(1, cos(angle))));
+    const i = add(cos(angle), multiply(square(z), subtract(1, cos(angle))));
 
-    // Compute the product
-    const values = this.map((row) => row.map((column, j) => column * Number(vector[j])));
+    // Define
+    const b = subtract(multiply(multiply(x, y), subtract(1, cos(angle))), multiply(z, sin(angle)));
+    const f = subtract(multiply(multiply(y, z), subtract(1, cos(angle))), multiply(x, sin(angle)));
+    const g = subtract(multiply(multiply(z, x), subtract(1, cos(angle))), multiply(y, sin(angle)));
 
-    // Return the new matrix
-    return new Matrix(values);
+    // Define
+    const c = add(multiply(multiply(x, z), subtract(1, cos(angle))), multiply(y, sin(angle)));
+    const d = add(multiply(multiply(y, x), subtract(1, cos(angle))), multiply(z, sin(angle)));
+    const h = add(multiply(multiply(z, y), subtract(1, cos(angle))), multiply(x, sin(angle)));
+
+    // Create the matrix from the translation
+    return new Matrix([
+      [a, b, c],
+      [d, e, f],
+      [g, h, i]
+    ]);
   }
 
   // Add to a matrix
@@ -174,7 +189,13 @@ export class Matrix extends Array {
     // Return the new matrix
     return new Matrix(negative);
   }
-  
+
+  // Transpose the matrix
+  transpose() {
+
+    // Return the transposed matrix
+    return new Matrix(this.columns);
+  }
 
   // Calculate the determinant
   determinant() {
