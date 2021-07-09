@@ -1,3 +1,6 @@
+// Import the required math functions
+import { equal } from '../operations';
+
 // Define the numerical type behaviours
 export const defineAspects = (type, { dimensions, species }) => {
 
@@ -24,6 +27,10 @@ export const defineAspects = (type, { dimensions, species }) => {
   // Define the type string (rows x columns)
   Reflect.defineProperty(type, 'type', {
     get() {
+      // Define the vector type
+      if (this.species == 'Vector') return `${this.species}(${this.dimensions.rows})`;
+
+      // Define the matrix type
       return `${this.species}(${this.dimensions.rows}x${this.dimensions.columns})`;
     }
   });
@@ -126,9 +133,13 @@ export const defineAspects = (type, { dimensions, species }) => {
 
   // Define the equals function to compare
   Reflect.defineProperty(type, 'equals', {
-    value(other) {
-      // Return if true
-      return (this.toString() == other.toString());
+    value(other, typecheck) {
+
+      // Return false if types dont match
+      if (typecheck && this.type != other.type) return false;
+
+      // Return if the value all match within the define epsilon
+      return this.every((v, i) => equal(v, other[i]));
     }
   });
 

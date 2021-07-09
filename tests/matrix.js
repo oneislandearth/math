@@ -306,6 +306,48 @@ test('multiply (matrix non-equal dimnensions)', t => {
   t.throws(() => a.multiply(b));
 });
 
+// Check if a matrix equals a value
+test('equals (within epsilon)', t => {
+
+  // Create a matrix
+  const a = new Matrix([
+    [1, 2]
+  ]);
+
+  // Check the matrix has computed correctly
+  if (a.equals([1.00001, 2.00001])) t.pass();
+});
+
+// Check if a matrix equals a matrix
+test('equals (out of epsilon)', t => {
+
+  // Create a matrix
+  const a = new Matrix([
+    [1, 2]
+  ]);
+
+  // Create a matrix
+  const b = new Matrix([
+    [1, 2.0005]
+  ]);
+
+  // Check the matrix has computed correctly
+  if (a.equals(b, true) == false) t.pass();
+});
+
+
+// Check if a matrix equals a matrix
+test('equals (strict type)', t => {
+
+  // Create a matrix
+  const a = new Matrix([
+    [1, 2]
+  ]);
+
+  // Check the matrix has computed correctly
+  if (a.equals([1, 2], true) == false) t.pass();
+});
+
 // // Check if a matrix product is correct
 // test('product', t => {
 
