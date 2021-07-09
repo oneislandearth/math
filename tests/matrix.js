@@ -331,6 +331,8 @@ test('equals (out of epsilon)', t => {
     [1, 2.0005]
   ]);
 
+  console.log(a, b)
+
   // Check the matrix has computed correctly
   if (a.equals(b, true) == false) t.pass();
 });

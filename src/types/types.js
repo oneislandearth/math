@@ -133,10 +133,10 @@ export const defineAspects = (type, { dimensions, species }) => {
 
   // Define the equals function to compare
   Reflect.defineProperty(type, 'equals', {
-    value(other, typecheck) {
+    value(other, strictTypes) {
 
       // Return false if types dont match
-      if (typecheck && this.type != other.type) return false;
+      if (strictTypes && this.type != other.type) return false;
 
       // Return if the value all match within the define epsilon
       return this.every((v, i) => equal(v, other[i]));

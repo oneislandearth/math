@@ -25,12 +25,8 @@ export const min = (a, b) => round(Math.min(a, b));
 // Describe the max function
 export const max = (a, b) => round(Math.max(a, b));
 
-// Descrive the equal function
-export const equal = (a, b) => {
-  console.log(abs(a - b));
-  
-  return abs(a - b) <= (max(abs(a), abs(b)) * epsilon);
-};
+// Describe the equal function
+export const equal = (a, b) => abs(a - b) <= (max(abs(a), abs(b)) * epsilon);
 
 // Describe the sum function
 export const sum = (values) => round(values.reduce((sum, value) => add(sum, value), 0));
