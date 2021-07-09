@@ -94,6 +94,28 @@ export const defineAspects = (type, { dimensions, species }) => {
     });
   }
 
+
+  // Define the value types from 0 to m
+  for (let m = 0; m < type.dimensions.rows; m++) {
+
+    // Define the value types from 0 to n
+    for (let n = 0; n < type.dimensions.columns; n++) {
+
+      // Define the index
+      const index = ((m * type.dimensions.columns) + (n));
+
+      // Define the getter and setter
+      Reflect.defineProperty(type, `${m}:${n}`, {
+        get() {
+          return this[index];
+        },
+        set(v) {
+          this[index] = v;
+        }
+      });
+    }
+  }
+
   // Define the toString function
   Reflect.defineProperty(type, 'toString', {
     value() {

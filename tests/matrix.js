@@ -75,6 +75,106 @@ test('determinant (4x4)', t => {
   if (determinant == -1988) t.pass();
 });
 
+// Check if a matrix determinant throws an error
+test('determinant (non-square)', t => {
+
+  // Create a matrix
+  const matrix = new Matrix([
+    [1, 2, 3],
+    [4, 5, 6]
+  ]);
+
+  // Check the determinant throws an error
+  t.throws(() => matrix.determinant())
+});
+
+// Check if a matrix negative is correct
+test('negative', t => {
+
+  // Create a matrix
+  const matrix = new Matrix([
+    [-1, 2, 3],
+    [4, -5, -6]
+  ]);
+
+  // Compute the negative
+  const negative = matrix.negative();
+
+  // Define the expected matrix
+  const expected = new Matrix([
+    [1, -2, -3],
+    [-4, 5, 6]
+  ]);
+
+  // Check the matrix has negated correctly
+  if (negative.equals(expected)) t.pass();
+});
+
+// Check if a scalar added to a matrix is correct
+test('add (scalar)', t => {
+
+  // Create a matrix
+  const matrix = new Matrix([
+    [1, 2, 3],
+    [4, 5, 6]
+  ]);
+
+  // Define the expected matrix
+  const expected = new Matrix([
+    [11, 12, 13],
+    [14, 15, 16]
+  ]);
+
+  // Check the matrix has computed correctly
+  if (matrix.add(10).equals(expected)) t.pass();
+});
+
+// Check if a matrix added to a matrix is correct
+test('add (matrix equal dimensions)', t => {
+
+  // Create a matrix
+  const a = new Matrix([
+    [1, 2, 3],
+    [4, 5, 6]
+  ]);
+
+  // Create a matrix
+  const b = new Matrix([
+    [7, 8, 9],
+    [10, 11, 12]
+  ]);
+
+  // Define the expected matrix
+  const expected = new Matrix([
+    [8, 10, 12],
+    [14, 16, 18]
+  ]);
+
+  // Check the matrix has computed correctly
+  if (a.add(b).equals(expected)) t.pass();
+});
+
+
+// Check if a matrix added to a matrix of different size throws an error
+test('add (matrix non-equal dimensions)', t => {
+
+  // Create a matrix
+  const a = new Matrix([
+    [1, 2, 3],
+    [4, 5, 6]
+  ]);
+
+  // Create a matrix
+  const b = new Matrix([
+    [7, 8],
+    [9, 10],
+    [11, 12]
+  ]);
+
+  // Check the add throws an error
+  t.throws(() => a.add(b))
+});
+
 // // Check if a matrix product is correct
 // test('product', t => {
 

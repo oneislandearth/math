@@ -8,10 +8,10 @@ export const truthy = (values) => Boolean(values.reduce((sum, v) => sum & v));
 export const type = (value) => {
 
   // Determine if the number is a number type
-  if (typeof value == 'number') return 'Number';
+  if (typeof value == 'number') return 'Scalar';
 
-  // Determine if the number is a numerical type
-  if (value.species && value.species == 'Numerical') return 'Numerical';
+  // Determine if the number is a scalar type
+  if (value.species && value.species == 'Numerical') return 'Scalar';
 
   // Determine if the number is a vector type
   if (value.species && value.species == 'Vector') return 'Vector';

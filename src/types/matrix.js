@@ -70,6 +70,62 @@ export class Matrix extends Array {
     return new Matrix(values);
   }
 
+  // Add to a matrix
+  add(value) {
+
+    // Determine which function to use for computation
+    switch (value.type) {
+
+      // Compute the matrix with a scalar
+      case 'Scalar': {
+
+        // Scale the values
+        const values = this.rows.map(row => row.map(column => add(column, value)));
+
+        // Return the new matrix
+        return new Matrix(values);
+      }
+
+      // Compute the matrix with an equal matrix
+      case this.type: {
+
+        // Scale the values
+        const values = this.rows.map((row, m) => row.map((column, n) => add(column, value[`${m}:${n}`])));
+
+        // Return the new matrix
+        return new Matrix(values);
+      }
+
+      // Handle any other case
+      default: {
+
+        // Compute for a scalar number
+        if (typeof value == 'number') {
+
+          // Scale the values
+          const values = this.rows.map(row => row.map(column => add(column, value)));
+
+          // Return the new matrix
+          return new Matrix(values);
+        }
+        
+        // Throw an error as sizes do not match
+        throw new Error(`${this.type}.add(${value.type}): Unable to add matrices together`);
+      }
+    }
+  }
+
+  // Calculate the negative of the matrix
+  negative() {
+
+    // Determine the negative values
+    const negative = this.rows.map(row => row.map(v => v * -1));
+
+    // Return the new matrix
+    return new Matrix(negative);
+  }
+  
+
   // Calculate the determinant
   determinant() {
 
