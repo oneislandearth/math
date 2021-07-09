@@ -175,6 +175,72 @@ test('add (matrix non-equal dimensions)', t => {
   t.throws(() => a.add(b))
 });
 
+
+// Check if a scalar subtracted from a matrix is correct
+test('subtract (scalar)', t => {
+
+  // Create a matrix
+  const matrix = new Matrix([
+    [1, 2, 3],
+    [4, 5, 6]
+  ]);
+
+  // Define the expected matrix
+  const expected = new Matrix([
+    [-1, 0, 1],
+    [2, 3, 4]
+  ]);
+
+  // Check the matrix has computed correctly
+  if (matrix.subtract(2).equals(expected)) t.pass();
+});
+
+// Check if a matrix subtracted from a matrix is correct
+test('subtract (matrix equal dimensions)', t => {
+
+  // Create a matrix
+  const a = new Matrix([
+    [1, 2, 3],
+    [4, 5, 6]
+  ]);
+
+  // Create a matrix
+  const b = new Matrix([
+    [7, 8, 9],
+    [10, 11, 12]
+  ]);
+
+  // Define the expected matrix
+  const expected = new Matrix([
+    [-6, -6, -6],
+    [-6, -6, -6]
+  ]);
+
+  // Check the matrix has computed correctly
+  if (a.subtract(b).equals(expected)) t.pass();
+});
+
+
+// Check if a matrix subtracted from a matrix of different size throws an error
+test('subtract (matrix non-equal dimensions)', t => {
+
+  // Create a matrix
+  const a = new Matrix([
+    [1, 2, 3],
+    [4, 5, 6]
+  ]);
+
+  // Create a matrix
+  const b = new Matrix([
+    [7, 8],
+    [9, 10],
+    [11, 12]
+  ]);
+
+  // Check the add throws an error
+  t.throws(() => a.subtract(b))
+});
+
 // // Check if a matrix product is correct
 // test('product', t => {
 
