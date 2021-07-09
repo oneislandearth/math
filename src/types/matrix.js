@@ -2,7 +2,7 @@
 import { truthy } from '../utils';
 
 // Import the required operation functions
-import { add, subtract, multiply, divide } from '../operations';
+import { add, subtract, multiply, divide, sum } from '../operations';
 
 // Import the aspects utilities
 import { defineAspects } from './types';
@@ -139,6 +139,33 @@ export class Matrix extends Array {
         throw new Error(`${this.type}.subtract(${value.type}): Unable to subtract matrices together`);
       }
     }
+  }
+
+  // Multiply a matrix
+  multiply(value) {
+
+    // Compute for a scalar number
+    if (typeof value == 'number' || value.type == 'Scalar') {
+
+      // Scale the values
+      const values = this.rows.map(row => row.map(column => multiply(column, value)));
+
+      // Return the new matrix
+      return new Matrix(values);
+    }
+
+    // Compute for when the value equals rows (dot product)
+    if (this.dimensions.columns == value.dimensions.rows) {
+
+      // Compute the dot product of the matrices
+      const dot = this.rows.map((row) => value.columns.map((column) => sum(row.map((v, i) => multiply(row[i], column[i])))));
+
+      // Return the new matrix
+      return new Matrix(dot);
+    }
+
+    // Throw an error as sizes do not match
+    throw new Error(`${this.type}.multiply(${value.type}): Unable to multiply matrices together`);
   }
 
   // Calculate the negative of the matrix

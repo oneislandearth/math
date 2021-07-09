@@ -237,8 +237,73 @@ test('subtract (matrix non-equal dimensions)', t => {
     [11, 12]
   ]);
 
-  // Check the add throws an error
-  t.throws(() => a.subtract(b))
+  // Check the function throws an error
+  t.throws(() => a.subtract(b));
+});
+
+
+// Check if a matrix is multiplied correctly
+test('multiply (scalar)', t => {
+
+  // Create a matrix
+  const a = new Matrix([
+    [1, 2, 3],
+    [4, 5, 6]
+  ]);
+
+  // Define the expected matrix
+  const expected = new Matrix([
+    [2, 4, 6],
+    [8, 10, 12]
+  ]);
+
+  // Check the matrix has computed correctly
+  if (a.multiply(2).equals(expected)) t.pass();
+});
+
+// Check if a matrix is multiplied correctly
+test('multiply (matrix equal dimensions)', t => {
+
+  // Create a matrix
+  const a = new Matrix([
+    [1, 2, 3],
+    [4, 5, 6]
+  ]);
+
+  // Create a matrix
+  const b = new Matrix([
+    [7, 8],
+    [9, 10],
+    [11, 12]
+  ]);
+
+  // Define the expected matrix
+  const expected = new Matrix([
+    [58, 64],
+    [139, 154]
+  ]);
+
+  // Check the matrix has computed correctly
+  if (a.multiply(b).equals(expected)) t.pass();
+});
+
+// Check if a matrix is multiplied correctly
+test('multiply (matrix non-equal dimnensions)', t => {
+
+  // Create a matrix
+  const a = new Matrix([
+    [1, 2, 3],
+    [4, 5, 6]
+  ]);
+
+  // Create a matrix
+  const b = new Matrix([
+    [7, 8, 9],
+    [10, 11, 12],
+  ]);
+
+  // Check the function throws an error
+  t.throws(() => a.multiply(b));
 });
 
 // // Check if a matrix product is correct
