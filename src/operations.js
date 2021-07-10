@@ -17,7 +17,7 @@ export const multiply = (a, b) => round(a * b);
 export const divide = (a, b) => round(a / b);
 
 // Describe the negate function
-export const negate = (value) => multiply(value * -1);
+export const negate = (value) => multiply(value, -1);
 
 // Describe the absolute function
 export const abs = (value) => round(Math.abs(value));
